@@ -18,17 +18,6 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#0f1a2e]/90 via-[#0f1a2e]/70 to-[#0f1a2e]/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0f1a2e]/90 via-transparent to-[#0f1a2e]/40" />
 
-      {/* Blueprint illustration subtle overlay */}
-      <div className="absolute inset-0 opacity-[0.04] mix-blend-screen">
-        <Image
-          src="/images/about.png"
-          alt=""
-          fill
-          className="object-cover object-center"
-          aria-hidden="true"
-        />
-      </div>
-
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-end max-w-[1400px] mx-auto px-6 lg:px-12 pb-20 lg:pb-28">
         <div className="max-w-[640px]">
