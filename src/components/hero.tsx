@@ -6,12 +6,12 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="relative h-screen min-h-[600px] max-h-[1000px]">
-      {/* Background — high-res ocean */}
+      {/* Background — Allum team */}
       <Image
-        src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1920&q=85"
-        alt="Deep ocean waves"
+        src="/images/team.jpg"
+        alt="The Allum Engineering team celebrating Miljøfyrtårn certification"
         fill
-        className="object-cover"
+        className="object-cover object-[center_20%]"
         priority
       />
       {/* Gradient overlays */}
