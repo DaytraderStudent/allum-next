@@ -55,9 +55,10 @@ export default function Markets() {
 
         <div className="space-y-1">
           {markets.map((m, i) => (
-            <div
+            <Link
               key={m.title}
-              className="group grid lg:grid-cols-[1fr_400px] gap-8 lg:gap-16 items-center py-10 border-t border-gray-200 last:border-b cursor-pointer"
+              href="/contact"
+              className="group grid lg:grid-cols-[1fr_400px] gap-8 lg:gap-16 items-center py-10 border-t border-gray-200 last:border-b cursor-pointer block"
             >
               <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                 <h3 className="text-[#0f1a2e] text-[28px] lg:text-[32px] font-light leading-snug group-hover:text-gray-600 transition-colors">
@@ -66,12 +67,9 @@ export default function Markets() {
                 <p className="mt-4 text-gray-500 text-[15px] leading-[1.7] max-w-[480px]">
                   {m.text}
                 </p>
-                <Link
-                  href="/markets"
-                  className="inline-flex items-center mt-5 text-[#0f1a2e] text-[13px] font-semibold tracking-[0.02em] opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
-                >
-                  Learn more &rarr;
-                </Link>
+                <span className="inline-flex items-center mt-5 text-[#0f1a2e] text-[13px] font-semibold tracking-[0.02em] opacity-0 group-hover:opacity-100 transition-opacity">
+                  Get in touch &rarr;
+                </span>
               </div>
               <div
                 className={`relative overflow-hidden ${i % 2 === 1 ? "lg:order-1" : ""} ${m.isModel ? "aspect-[16/10] bg-gray-100 flex items-center justify-center" : "aspect-[16/10]"}`}
@@ -93,7 +91,7 @@ export default function Markets() {
                   />
                 )}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
