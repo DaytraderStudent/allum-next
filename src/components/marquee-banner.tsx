@@ -1,34 +1,35 @@
 "use client";
 
-const items = [
-  "Marine Engineering",
-  "Cable Handling",
-  "Turntable Systems",
-  "Naval Architecture",
-  "Process Design",
-  "Water Treatment",
-  "Structural Analysis",
-  "CFU Technology",
-  "Offshore Modifications",
-  "Zero Emission",
+import { Marquee } from "@/components/ui/marquee";
+
+const clients = [
+  "Nexans",
+  "Equinor",
+  "OMV",
+  "Innovation Norway",
+  "Research Council",
 ];
 
 export default function MarqueeBanner() {
   return (
-    <div className="relative py-6 bg-navy overflow-hidden border-y border-white/[0.06]">
-      <div className="animate-marquee flex whitespace-nowrap">
-        {[...items, ...items].map((item, i) => (
-          <span
-            key={`${item}-${i}`}
-            className="inline-flex items-center gap-6 mx-6"
-          >
-            <span className="font-heading font-medium text-sm text-white/20 uppercase tracking-[0.15em]">
-              {item}
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-gold/30" />
-          </span>
-        ))}
+    <div className="py-10 bg-white border-y border-[#d6d3cc]">
+      <div className="max-w-[1200px] mx-auto px-6 mb-6">
+        <p className="text-[12px] text-[#6b6b6b] uppercase tracking-[0.08em] text-center">
+          Trusted by industry leaders
+        </p>
       </div>
+      <Marquee pauseOnHover className="[--duration:25s]">
+        {clients.map((name) => (
+          <div
+            key={name}
+            className="mx-8 flex items-center gap-2 text-[#6b6b6b]/60 hover:text-[#1a1a1a] transition-colors"
+          >
+            <span className="font-heading font-semibold text-[18px] tracking-[-0.01em] whitespace-nowrap">
+              {name}
+            </span>
+          </div>
+        ))}
+      </Marquee>
     </div>
   );
 }

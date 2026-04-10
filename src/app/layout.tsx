@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -14,27 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Allum Engineering | Innovative Engineering Since 1973",
+  title: "Allum Engineering — Marine & Energy Engineering Since 1973",
   description:
-    "Allum Engineering AS — trusted partner in marine, energy and process industries. Specializing in cable equipment, maritime solutions, and innovative water treatment technology.",
-  keywords: [
-    "engineering",
-    "maritime",
-    "marine",
-    "cable handling",
-    "turntables",
-    "CFU",
-    "water treatment",
-    "Norway",
-    "Sandefjord",
-  ],
-  openGraph: {
-    title: "Allum Engineering | Innovative Engineering Since 1973",
-    description:
-      "Trusted partner in marine, energy and process industries since 1973.",
-    type: "website",
-    locale: "en_US",
-  },
+    "Multidisciplinary engineering, fabrication and turnkey solutions for the marine, energy and process industries. Sandefjord, Norway.",
 };
 
 export default function RootLayout({
@@ -45,9 +28,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col grain-overlay">{children}</body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

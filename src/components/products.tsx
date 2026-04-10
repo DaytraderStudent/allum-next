@@ -1,237 +1,150 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { useInView } from "@/hooks/use-in-view";
-import { ArrowRight, ChevronRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 const products = [
   {
-    title: "Marine Cable Handling Equipment",
-    category: "Cable Systems",
+    id: "turntables",
+    title: "Turntable Systems",
+    tag: "Cable Equipment",
     description:
-      "Complete turntable and carousel systems for subsea cable production, storage, transport and installation. Recognized supplier of onshore and offshore turntables — acting as both engineering partner and turnkey supplier.",
-    features: [
-      "Turntables & carousels",
-      "Drive systems",
-      "Transport frames",
-      "Overboard & pick-up chutes",
-      "Tensioners & pull-in winches",
+      "Recognized supplier of onshore and offshore turntables. We serve as both engineering partner and turnkey supplier — handling engineering, procurement, construction, and installation. Our modular designs scale from small onshore units to large offshore carousel systems.",
+    specs: [
+      "Up to 7,000t capacity",
+      "Modular design",
+      "Onshore & offshore",
+      "Full EPC delivery",
     ],
-    highlight: "Turnkey Supplier",
-    color: "from-blue-500/20 to-navy/40",
   },
   {
-    title: "Shore & Deck Cable Handling",
-    category: "Cable Systems",
+    id: "cfu",
+    title: "Compact Flotation Units",
+    tag: "Water Treatment",
     description:
-      "Specialized equipment for cable operations on shore facilities and vessel decks. Designed for safe and efficient cable handling in demanding marine environments.",
-    features: [
-      "Spooling lines",
-      "Lockdown quadrants",
-      "A-frames & sheaves",
-      "Foundations",
-      "Lifting tables",
-    ],
-    highlight: "Custom Design",
-    color: "from-emerald-500/20 to-navy/40",
-  },
-  {
-    title: "Compact Flotation Units (CFU)",
-    category: "Water Treatment",
-    description:
-      "Proprietary produced water treatment technology delivering industry-leading performance. Low reject rate of less than 0.1%, high efficiency at low oil concentrations. Two patents granted with more pending.",
-    features: [
-      "Under 0.1% reject rate",
+      "Proprietary produced water treatment technology developed since 2015. Delivers industry-leading oil removal with less than 0.1% reject rate. Two patents granted, tested at Equinor facilities, backed by Innovation Norway and the Research Council of Norway.",
+    specs: [
+      "< 0.1% reject rate",
+      "2 patents granted",
+      "Equinor tested",
       "Compact footprint",
-      "Patented technology",
-      "Tested at Equinor",
-      "Innovation Norway backed",
     ],
-    highlight: "Patented Tech",
-    color: "from-cyan-500/20 to-navy/40",
   },
   {
-    title: "Handling Crane",
-    category: "Lifting Equipment",
+    id: "crane",
+    title: "Handling Cranes",
+    tag: "Lifting Equipment",
     description:
-      "Complete knuckle-boom and service crane design for marine and industrial applications. Tailored to client specifications with full structural analysis.",
-    features: [
-      "Up to 15t at 15-25m at 4g",
+      "Complete knuckle-boom and service crane design for marine and industrial applications. Every crane is tailored to client requirements with full 3D FE analysis and delivered classification-ready.",
+    specs: [
+      "Up to 15t SWL",
       "3D FE analysis",
       "Classification ready",
+      "Custom design",
     ],
-    highlight: "Bespoke Design",
-    color: "from-amber-500/20 to-navy/40",
   },
   {
+    id: "workboat",
     title: "Zero Emission Work Boat",
-    category: "Maritime",
+    tag: "Maritime",
     description:
-      "Next-generation electric work boat designed for harbour and near-shore operations. 12m length with battery-electric propulsion for zero-emission operations.",
-    features: [
+      "Next-generation 12m electric work boat for harbour and near-shore operations. Battery-electric propulsion for zero-emission operations with practical working capacity.",
+    specs: [
       "12m length",
-      "8 knots service speed",
       "120 kWh battery",
-      "5 tonne deck capacity",
+      "8 knots service",
+      "5t deck capacity",
     ],
-    highlight: "Zero Emission",
-    color: "from-green-500/20 to-navy/40",
   },
 ];
 
 export default function Products() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { threshold: 0.05 });
-  const [activeProduct, setActiveProduct] = useState(0);
+  const [active, setActive] = useState(0);
+  const p = products[active];
 
   return (
-    <section
-      id="products"
-      className="relative py-32 bg-navy-dark overflow-hidden"
-    >
-      <div className="absolute inset-0 hero-grid-pattern opacity-20" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-
-      <div ref={ref} className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section header */}
-        <div className="text-center mb-20">
-          <div
-            className={`flex items-center justify-center gap-3 mb-6 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-          >
-            <div className="w-12 h-[2px] bg-gold" />
-            <span className="text-gold text-sm font-heading font-medium uppercase tracking-[0.2em]">
-              Products
-            </span>
-            <div className="w-12 h-[2px] bg-gold" />
-          </div>
-
-          <h2
-            className={`font-heading font-bold text-4xl md:text-5xl text-white transition-all duration-700 delay-100 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-          >
-            Engineered
-            <br />
-            <span className="text-gold">Solutions</span>
+    <section id="products" className="py-24 md:py-32 bg-[#f8f7f4]">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[520px] mb-14">
+          <p className="text-[#b8953f] text-[13px] font-medium tracking-[0.08em] uppercase mb-4">
+            Products
+          </p>
+          <h2 className="font-heading font-bold text-[#0c1e3f] text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.15] tracking-[-0.02em]">
+            Engineered for performance
           </h2>
         </div>
 
-        {/* Product selector — desktop */}
-        <div className="hidden lg:grid lg:grid-cols-12 gap-8">
-          {/* Left — tabs */}
-          <div className="col-span-4 space-y-2">
-            {products.map((product, i) => (
+        <div className="grid lg:grid-cols-12 gap-8">
+          {/* Tabs */}
+          <div className="lg:col-span-4 flex lg:flex-col gap-2">
+            {products.map((prod, i) => (
               <button
-                key={product.title}
-                onClick={() => setActiveProduct(i)}
-                className={`w-full text-left p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
-                  activeProduct === i
-                    ? "bg-white/[0.06] border-gold/30"
-                    : "bg-transparent border-white/[0.06] hover:bg-white/[0.03]"
-                } ${isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}
-                style={{ transitionDelay: `${200 + i * 80}ms` }}
+                key={prod.id}
+                onClick={() => setActive(i)}
+                className={`text-left px-5 py-4 rounded-sm border transition-all cursor-pointer ${
+                  active === i
+                    ? "bg-white border-[#d6d3cc] shadow-sm"
+                    : "bg-transparent border-transparent hover:bg-white/60"
+                }`}
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-heading font-semibold text-white text-sm">
-                      {product.title}
-                    </div>
-                    <div className="text-white/30 text-xs mt-1">
-                      {product.category}
-                    </div>
-                  </div>
-                  <ChevronRight
-                    className={`w-4 h-4 transition-all duration-300 ${activeProduct === i ? "text-gold translate-x-0" : "text-white/20 -translate-x-1"}`}
-                  />
-                </div>
+                <span
+                  className={`block text-[11px] uppercase tracking-[0.06em] mb-1 ${active === i ? "text-[#b8953f]" : "text-[#6b6b6b]"}`}
+                >
+                  {prod.tag}
+                </span>
+                <span
+                  className={`block font-heading font-semibold text-[15px] ${active === i ? "text-[#0c1e3f]" : "text-[#6b6b6b]"}`}
+                >
+                  {prod.title}
+                </span>
               </button>
             ))}
           </div>
 
-          {/* Right — active product detail */}
-          <div className="col-span-8">
-            <div className="relative bg-white/[0.03] border border-white/[0.06] rounded-2xl p-10 overflow-hidden">
-              {/* Gradient background */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${products[activeProduct].color} opacity-30`}
+          {/* Detail */}
+          <div className="lg:col-span-8">
+            <div className="relative bg-white border border-[#d6d3cc] rounded-sm p-8 md:p-10 overflow-hidden">
+              <BorderBeam
+                size={120}
+                duration={8}
+                colorFrom="#b8953f"
+                colorTo="#0c1e3f"
+                borderWidth={1}
               />
 
-              <div className="relative">
-                <Badge
-                  variant="outline"
-                  className="border-gold/30 text-gold mb-4"
-                >
-                  {products[activeProduct].highlight}
-                </Badge>
+              <span className="inline-block text-[11px] uppercase tracking-[0.06em] text-[#b8953f] font-medium bg-[#b8953f]/10 px-2.5 py-1 rounded-sm mb-5">
+                {p.tag}
+              </span>
 
-                <h3 className="font-heading font-bold text-2xl text-white mb-4">
-                  {products[activeProduct].title}
-                </h3>
+              <h3 className="font-heading font-bold text-[#0c1e3f] text-2xl md:text-[28px] tracking-[-0.01em]">
+                {p.title}
+              </h3>
 
-                <p className="text-white/50 leading-relaxed mb-8 max-w-lg">
-                  {products[activeProduct].description}
-                </p>
+              <p className="mt-4 text-[#6b6b6b] text-[15px] leading-[1.7] max-w-[560px]">
+                {p.description}
+              </p>
 
-                <div className="grid grid-cols-2 gap-3">
-                  {products[activeProduct].features.map((feature) => (
-                    <div
-                      key={feature}
-                      className="flex items-center gap-2 text-sm text-white/60"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 mt-8 text-gold font-heading font-medium text-sm hover:gap-3 transition-all duration-300 cursor-pointer"
-                >
-                  Inquire About This Product
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+              {/* Specs */}
+              <div className="mt-8 grid grid-cols-2 gap-3">
+                {p.specs.map((spec) => (
+                  <div
+                    key={spec}
+                    className="flex items-center gap-2.5 text-[14px] text-[#1a1a1a]"
+                  >
+                    <div className="w-1 h-1 rounded-full bg-[#b8953f]" />
+                    {spec}
+                  </div>
+                ))}
               </div>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center mt-8 h-11 px-6 bg-[#0c1e3f] text-white text-[13px] font-medium rounded-sm hover:bg-[#162d54] transition-colors cursor-pointer"
+              >
+                Request specification
+              </a>
             </div>
           </div>
-        </div>
-
-        {/* Mobile — stacked cards */}
-        <div className="lg:hidden space-y-6">
-          {products.map((product, i) => (
-            <div
-              key={product.title}
-              className={`relative bg-white/[0.03] border border-white/[0.06] rounded-xl p-6 overflow-hidden transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              style={{ transitionDelay: `${200 + i * 100}ms` }}
-            >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-20`}
-              />
-              <div className="relative">
-                <Badge
-                  variant="outline"
-                  className="border-gold/30 text-gold mb-3"
-                >
-                  {product.highlight}
-                </Badge>
-                <h3 className="font-heading font-semibold text-lg text-white mb-2">
-                  {product.title}
-                </h3>
-                <p className="text-white/40 text-sm leading-relaxed mb-4">
-                  {product.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {product.features.map((f) => (
-                    <span
-                      key={f}
-                      className="text-xs text-white/50 bg-white/[0.05] px-2 py-1 rounded"
-                    >
-                      {f}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
