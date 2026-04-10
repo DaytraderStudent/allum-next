@@ -6,10 +6,10 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="relative h-screen min-h-[600px] max-h-[1000px]">
-      {/* Background — Allum's own ocean photo */}
+      {/* Background — high-res ocean */}
       <Image
-        src="/images/background.png"
-        alt="Norwegian ocean waves"
+        src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1920&q=85"
+        alt="Deep ocean waves"
         fill
         className="object-cover"
         priority
