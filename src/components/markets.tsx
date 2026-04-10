@@ -1,37 +1,40 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const markets = [
   {
     title: "Cable Equipment",
-    text: "Turntables, carousels, cable laying spread and installation equipment for subsea cable production worldwide. Acting as both engineering partner and turnkey supplier.",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    text: "Turntables, carousels, cable laying spread and installation equipment for subsea cable projects.",
+    image: "/images/thumb1.png",
+    isModel: true,
   },
   {
     title: "Maritime",
-    text: "Ship modifications, vessel conversions, classification surveys, and zero-emission vessel design. Naval architecture and marine operations support.",
+    text: "Ship modifications, vessel conversions, classification surveys, and zero-emission vessel design.",
     image:
       "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80",
+    isModel: false,
   },
   {
     title: "Energy",
-    text: "FPSO modifications, drilling rig upgrades, offshore structural engineering and mechanical integration for the oil, gas and renewable sectors.",
+    text: "FPSO modifications, drilling rig upgrades, offshore structural engineering and mechanical integration.",
     image:
-      "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&q=80",
+      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&q=80",
+    isModel: false,
   },
   {
     title: "Process Industry",
-    text: "Design of purpose-built equipment, process plant layout, and complete systems integration for industrial clients.",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80",
+    text: "Purpose-built equipment, process plant layout, and complete systems integration.",
+    image: "/images/thumb4.png",
+    isModel: true,
   },
   {
     title: "Water Treatment",
-    text: "Patented Compact Flotation Unit (CFU) technology for produced water treatment. Under 0.1% reject rate, tested at Equinor, backed by Innovation Norway.",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    text: "Patented CFU technology for produced water treatment. Under 0.1% reject rate, tested at Equinor.",
+    image: "/images/project.jpg",
+    isModel: false,
   },
 ];
 
@@ -56,7 +59,6 @@ export default function Markets() {
               key={m.title}
               className="group grid lg:grid-cols-[1fr_400px] gap-8 lg:gap-16 items-center py-10 border-t border-gray-200 last:border-b cursor-pointer"
             >
-              {/* Text — swap order on even rows for visual variety */}
               <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                 <h3 className="text-[#0f1a2e] text-[28px] lg:text-[32px] font-light leading-snug group-hover:text-gray-600 transition-colors">
                   {m.title}
@@ -64,23 +66,32 @@ export default function Markets() {
                 <p className="mt-4 text-gray-500 text-[15px] leading-[1.7] max-w-[480px]">
                   {m.text}
                 </p>
-                <a
-                  href="#contact"
+                <Link
+                  href="/markets"
                   className="inline-flex items-center mt-5 text-[#0f1a2e] text-[13px] font-semibold tracking-[0.02em] opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
                 >
                   Learn more &rarr;
-                </a>
+                </Link>
               </div>
-              {/* Image */}
               <div
-                className={`relative aspect-[16/10] overflow-hidden ${i % 2 === 1 ? "lg:order-1" : ""}`}
+                className={`relative overflow-hidden ${i % 2 === 1 ? "lg:order-1" : ""} ${m.isModel ? "aspect-[16/10] bg-gray-100 flex items-center justify-center" : "aspect-[16/10]"}`}
               >
-                <Image
-                  src={m.image}
-                  alt={m.title}
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                />
+                {m.isModel ? (
+                  <Image
+                    src={m.image}
+                    alt={m.title}
+                    width={400}
+                    height={250}
+                    className="object-contain max-h-[85%] max-w-[85%] grayscale group-hover:grayscale-0 transition-all duration-700"
+                  />
+                ) : (
+                  <Image
+                    src={m.image}
+                    alt={m.title}
+                    fill
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  />
+                )}
               </div>
             </div>
           ))}

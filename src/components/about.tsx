@@ -1,27 +1,39 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function About() {
   return (
     <section id="about" className="py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image */}
-          <div className="relative aspect-[4/3] lg:aspect-[3/4] overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80"
-              alt="Engineering fabrication work"
-              fill
-              className="object-cover"
-            />
-            {/* Overlay badge */}
-            <div className="absolute bottom-0 left-0 bg-[#0f1a2e] px-8 py-5">
-              <div className="text-white text-[32px] font-light leading-none">
-                1973
+          {/* Image — Allum's blueprint illustration with ocean underneath */}
+          <div className="relative">
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#0f1a2e]">
+              <Image
+                src="/images/background.png"
+                alt="Norwegian ocean"
+                fill
+                className="object-cover opacity-40"
+              />
+              <div className="absolute inset-0 flex items-center justify-center p-8">
+                <Image
+                  src="/images/about.png"
+                  alt="Allum Engineering blueprint illustration"
+                  width={600}
+                  height={260}
+                  className="w-full max-w-[500px] object-contain invert opacity-60"
+                />
               </div>
-              <div className="text-white/40 text-[11px] font-medium uppercase tracking-[0.1em] mt-1">
-                Established
+              {/* Year badge */}
+              <div className="absolute bottom-0 left-0 bg-white px-8 py-5">
+                <div className="text-[#0f1a2e] text-[32px] font-light leading-none">
+                  1973
+                </div>
+                <div className="text-gray-400 text-[11px] font-medium uppercase tracking-[0.1em] mt-1">
+                  Established
+                </div>
               </div>
             </div>
           </div>
@@ -52,23 +64,12 @@ export default function About() {
                 commissioning.
               </p>
             </div>
-            {/* Key facts */}
-            <div className="mt-10 grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
-              {[
-                { val: "~20", label: "Engineers" },
-                { val: "5", label: "Departments" },
-                { val: "2", label: "Patents" },
-              ].map((f) => (
-                <div key={f.label}>
-                  <div className="text-[#0f1a2e] text-[28px] font-semibold leading-none">
-                    {f.val}
-                  </div>
-                  <div className="text-gray-400 text-[12px] font-medium uppercase tracking-[0.06em] mt-1.5">
-                    {f.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+            <Link
+              href="/about"
+              className="inline-flex items-center mt-8 text-[#0f1a2e] text-[14px] font-semibold hover:text-gray-600 transition-colors cursor-pointer"
+            >
+              Read more about us &rarr;
+            </Link>
           </div>
         </div>
       </div>

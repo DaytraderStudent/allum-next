@@ -23,7 +23,7 @@ export default function Footer() {
               Company
             </h4>
             <ul className="space-y-2">
-              {["About", "Services", "Markets", "Products", "News"].map(
+              {["About", "Services", "Markets", "Products", "Tenders", "News"].map(
                 (item) => (
                   <li key={item}>
                     <a

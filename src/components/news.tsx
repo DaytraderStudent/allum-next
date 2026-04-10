@@ -1,15 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const articles = [
   {
     date: "2024",
     title: "Nexans turntable and loading system contract awarded",
     excerpt:
-      "Allum Engineering has been awarded the contract for the Halden–Ballycastle ICJ storage modular turntable and loading system, including design, fabrication, transport and installation.",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+      "Awarded the contract for the Halden–Ballycastle ICJ storage modular turntable and loading system, including design, fabrication, transport and installation.",
+    image: "/images/deliver2.png",
+    isIllustration: true,
     featured: true,
   },
   {
@@ -51,18 +52,34 @@ export default function News() {
               Latest from <span className="font-semibold">Allum</span>
             </h2>
           </div>
+          <Link
+            href="/news"
+            className="text-white/40 text-[13px] font-semibold hover:text-white/70 transition-colors cursor-pointer"
+          >
+            All news &rarr;
+          </Link>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Featured */}
-          <a href="#contact" className="group block cursor-pointer">
-            <div className="relative aspect-[16/10] overflow-hidden mb-6">
-              <Image
-                src={featured.image!}
-                alt={featured.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
+          <div className="group cursor-pointer">
+            <div className="relative aspect-[16/10] overflow-hidden bg-[#162d54] flex items-center justify-center mb-6">
+              {featured.isIllustration ? (
+                <Image
+                  src={featured.image!}
+                  alt={featured.title}
+                  width={400}
+                  height={250}
+                  className="object-contain max-h-[70%] max-w-[70%] invert opacity-40 group-hover:opacity-60 transition-opacity duration-500"
+                />
+              ) : (
+                <Image
+                  src={featured.image!}
+                  alt={featured.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              )}
             </div>
             <p className="text-white/25 text-[13px] font-medium tracking-[0.06em] uppercase">
               {featured.date}
@@ -73,7 +90,7 @@ export default function News() {
             <p className="mt-3 text-white/40 text-[15px] leading-[1.65]">
               {featured.excerpt}
             </p>
-          </a>
+          </div>
 
           {/* Other articles */}
           <div className="flex flex-col justify-between divide-y divide-white/10">

@@ -1,35 +1,40 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const products = [
   {
     title: "Turntable Systems",
-    desc: "Onshore and offshore turntables for subsea cable storage and handling. Modular designs, full EPC delivery. Recognized supplier for the global cable industry.",
+    desc: "Onshore and offshore turntables for subsea cable storage and handling. Modular designs, full EPC delivery.",
     specs: "Up to 7,000t capacity",
-    image:
-      "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&q=80",
+    image: "/images/deliver2.png",
+    bgClass: "bg-[#0f1a2e]",
+    isIllustration: true,
   },
   {
     title: "Compact Flotation Units",
-    desc: "Patented produced water treatment technology. Less than 0.1% reject rate. Two patents granted, tested at Equinor, backed by Innovation Norway and the Research Council.",
+    desc: "Patented produced water treatment. Less than 0.1% reject rate. Tested at Equinor, backed by Innovation Norway.",
     specs: "< 0.1% reject rate",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    image: "/images/project.jpg",
+    bgClass: "bg-gray-100",
+    isIllustration: false,
   },
   {
-    title: "Handling Cranes",
-    desc: "Knuckle-boom and service cranes tailored to client specifications. Full 3D FE analysis, delivered classification-ready for marine and industrial operations.",
-    specs: "Up to 15t SWL",
-    image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
+    title: "Cable Handling Equipment",
+    desc: "Complete cable handling systems for marine operations — spooling lines, chutes, A-frames, tensioners and winches.",
+    specs: "Turnkey delivery",
+    image: "/images/thumb1.png",
+    bgClass: "bg-gray-50",
+    isIllustration: true,
   },
   {
-    title: "Zero Emission Work Boat",
-    desc: "12-metre electric work boat for harbour and near-shore operations. Battery-electric propulsion, 8 knots service speed, 5 tonne deck capacity.",
-    specs: "120 kWh battery",
-    image:
-      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80",
+    title: "Process Equipment",
+    desc: "Purpose-built process plant equipment. 3D modelling, structural analysis, and fabrication support.",
+    specs: "Custom design",
+    image: "/images/thumb3.png",
+    bgClass: "bg-gray-50",
+    isIllustration: true,
   },
 ];
 
@@ -50,16 +55,27 @@ export default function Products() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {products.map((p) => (
-            <div key={p.title} className="group relative overflow-hidden">
+            <div key={p.title} className="group">
               {/* Image */}
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f1a2e]/90 via-[#0f1a2e]/30 to-transparent" />
+              <div
+                className={`relative aspect-[16/10] overflow-hidden ${p.bgClass} flex items-center justify-center`}
+              >
+                {p.isIllustration ? (
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    width={500}
+                    height={300}
+                    className={`object-contain max-h-[85%] max-w-[85%] group-hover:scale-105 transition-transform duration-700 ${p.bgClass === "bg-[#0f1a2e]" ? "invert brightness-200" : ""}`}
+                  />
+                ) : (
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                )}
                 {/* Spec badge */}
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5">
                   <span className="text-[#0f1a2e] text-[11px] font-semibold uppercase tracking-[0.05em]">
@@ -67,23 +83,26 @@ export default function Products() {
                   </span>
                 </div>
               </div>
-              {/* Text overlay at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                <h3 className="text-white text-[22px] font-semibold leading-snug">
+              {/* Text below image */}
+              <div className="mt-4">
+                <h3 className="text-[#0f1a2e] text-[20px] font-semibold leading-snug">
                   {p.title}
                 </h3>
-                <p className="mt-2 text-white/50 text-[14px] leading-[1.6] max-w-[360px]">
+                <p className="mt-2 text-gray-500 text-[14px] leading-[1.6]">
                   {p.desc}
                 </p>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center mt-4 text-white text-[13px] font-semibold tracking-[0.02em] opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
-                >
-                  Request specification &rarr;
-                </a>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/products"
+            className="inline-flex items-center h-12 px-8 border border-gray-300 text-[#0f1a2e] text-[14px] font-semibold hover:bg-gray-50 transition-colors cursor-pointer"
+          >
+            View all products
+          </Link>
         </div>
       </div>
     </section>

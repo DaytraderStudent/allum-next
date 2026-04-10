@@ -1,21 +1,33 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className="relative h-screen min-h-[600px] max-h-[1000px]">
-      {/* Background image */}
+      {/* Background — Allum's own ocean photo */}
       <Image
-        src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=1800&q=80"
-        alt="Offshore engineering platform"
+        src="/images/background.png"
+        alt="Norwegian ocean waves"
         fill
         className="object-cover"
         priority
       />
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0f1a2e]/90 via-[#0f1a2e]/60 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0f1a2e]/80 via-transparent to-[#0f1a2e]/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0f1a2e]/90 via-[#0f1a2e]/70 to-[#0f1a2e]/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0f1a2e]/90 via-transparent to-[#0f1a2e]/40" />
+
+      {/* Blueprint illustration subtle overlay */}
+      <div className="absolute inset-0 opacity-[0.04] mix-blend-screen">
+        <Image
+          src="/images/about.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          aria-hidden="true"
+        />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-end max-w-[1400px] mx-auto px-6 lg:px-12 pb-20 lg:pb-28">
@@ -33,18 +45,18 @@ export default function Hero() {
             1973. Based in Sandefjord, Norway.
           </p>
           <div className="mt-8 flex items-center gap-4">
-            <a
-              href="#services"
+            <Link
+              href="/services"
               className="inline-flex items-center h-12 px-7 bg-white text-[#0f1a2e] text-[14px] font-semibold tracking-[0.01em] hover:bg-gray-100 transition-colors cursor-pointer"
             >
               What we do
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              href="/contact"
               className="inline-flex items-center h-12 px-7 border border-white/25 text-white text-[14px] font-medium tracking-[0.01em] hover:bg-white/10 transition-colors cursor-pointer"
             >
               Contact us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

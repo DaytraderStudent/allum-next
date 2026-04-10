@@ -24,12 +24,12 @@ export default function InquiryForm() {
         {/* Left — image with contact info */}
         <div className="relative hidden lg:block">
           <Image
-            src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200&q=80"
-            alt="Norwegian coastline"
+            src="/images/background.png"
+            alt="Norwegian ocean"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[#0f1a2e]/75" />
+          <div className="absolute inset-0 bg-[#0f1a2e]/80" />
           <div className="relative z-10 flex flex-col justify-end h-full p-12 pb-16">
             <h2 className="text-white text-[clamp(1.8rem,3vw,2.5rem)] font-light leading-[1.2] mb-8">
               Get in
@@ -74,7 +74,6 @@ export default function InquiryForm() {
         {/* Right — form */}
         <div className="bg-[#f7f7f7] p-8 lg:p-16 flex items-center">
           <div className="w-full max-w-[520px] mx-auto">
-            {/* Mobile-only heading */}
             <div className="lg:hidden mb-10">
               <p className="text-gray-400 text-[13px] font-medium tracking-[0.1em] uppercase mb-4">
                 Contact
@@ -105,7 +104,6 @@ export default function InquiryForm() {
                 <p className="text-[#0f1a2e] text-[20px] font-semibold mb-6">
                   Project inquiry
                 </p>
-
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[12px] text-gray-400 uppercase tracking-[0.06em] mb-1.5 font-medium">
@@ -127,7 +125,6 @@ export default function InquiryForm() {
                     />
                   </div>
                 </div>
-
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[12px] text-gray-400 uppercase tracking-[0.06em] mb-1.5 font-medium">
@@ -149,7 +146,6 @@ export default function InquiryForm() {
                     />
                   </div>
                 </div>
-
                 <div>
                   <label className="block text-[12px] text-gray-400 uppercase tracking-[0.06em] mb-1.5 font-medium">
                     Service of interest
@@ -163,7 +159,6 @@ export default function InquiryForm() {
                     ))}
                   </select>
                 </div>
-
                 <div>
                   <label className="block text-[12px] text-gray-400 uppercase tracking-[0.06em] mb-1.5 font-medium">
                     Message *
@@ -174,7 +169,6 @@ export default function InquiryForm() {
                     className="w-full border border-gray-300 bg-white px-4 py-3 text-[14px] text-[#111827] focus:border-[#0f1a2e] focus:outline-none transition-colors resize-none"
                   />
                 </div>
-
                 <button
                   type="submit"
                   className="h-12 px-8 bg-[#0f1a2e] text-white text-[14px] font-semibold hover:bg-[#1a2d4a] transition-colors cursor-pointer"
@@ -184,7 +178,6 @@ export default function InquiryForm() {
               </form>
             )}
 
-            {/* Mobile contact info */}
             <div className="lg:hidden mt-12 pt-8 border-t border-gray-300 space-y-3">
               <p className="text-gray-500 text-[14px]">
                 Hinderveien 5, 3223 Sandefjord, Norway
