@@ -1,9 +1,8 @@
 import Navigation from "@/components/navigation";
 import Hero from "@/components/hero";
 import About from "@/components/about";
-import MarqueeBanner from "@/components/marquee-banner";
-import Markets from "@/components/markets";
 import Services from "@/components/services";
+import Markets from "@/components/markets";
 import Products from "@/components/products";
 import News from "@/components/news";
 import InquiryForm from "@/components/inquiry-form";
@@ -16,9 +15,8 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <MarqueeBanner />
-        <Markets />
         <Services />
+        <Markets />
         <Products />
         <News />
         <InquiryForm />

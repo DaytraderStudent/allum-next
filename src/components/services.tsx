@@ -1,92 +1,77 @@
 "use client";
 
+import Image from "next/image";
+
 const services = [
   {
-    num: "01",
     title: "Structural Analysis & Design",
-    description:
-      "Comprehensive FEA, design of load-bearing structures for marine and industrial applications. Classification society liaison.",
+    text: "Comprehensive FEA and design of load-bearing structures for marine and industrial applications. Full classification society liaison.",
   },
   {
-    num: "02",
     title: "Mechanical Equipment Design",
-    description:
-      "Bespoke mechanical equipment from concept through detailed design, including fabrication support and vendor follow-up.",
+    text: "Bespoke mechanical equipment engineering from concept through detailed design, including fabrication support.",
   },
   {
-    num: "03",
+    title: "Naval Architecture & Marine",
+    text: "Stability analysis, vessel modifications, marine engineering and classification interface for maritime projects.",
+  },
+  {
     title: "Piping & Pressure Vessels",
-    description:
-      "Piping stress analysis, pressure vessel design and process equipment engineering to international codes.",
+    text: "Stress analysis, pressure vessel design and process equipment engineering to international standards.",
   },
   {
-    num: "04",
-    title: "Naval Architecture",
-    description:
-      "Stability analysis, vessel modifications, marine engineering and full classification society interface.",
+    title: "Lifting Appliances & Cranes",
+    text: "Purpose-built lifting appliances and crane systems. Full 3D FE analysis, classification-ready designs.",
   },
   {
-    num: "05",
-    title: "Lifting & Crane Systems",
-    description:
-      "Design of purpose-built lifting appliances and crane systems for marine, offshore and industrial operations.",
-  },
-  {
-    num: "06",
     title: "Systems Integration",
-    description:
-      "End-to-end integration of mechanical, structural and control systems — from feasibility to commissioning.",
+    text: "End-to-end integration of mechanical, structural and control systems — from feasibility studies to commissioning.",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 bg-[#0c1e3f]">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-          {/* Left heading — sticky */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">
-            <p className="text-[#b8953f] text-[13px] font-medium tracking-[0.08em] uppercase mb-4">
-              What We Do
+    <section id="services" className="relative">
+      {/* Full-width image band */}
+      <div className="relative h-[400px] lg:h-[500px]">
+        <Image
+          src="https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?w=1800&q=80"
+          alt="Engineering and fabrication workshop"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[#0f1a2e]/70" />
+        <div className="relative z-10 h-full flex items-center max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="max-w-[600px]">
+            <p className="text-white/40 text-[13px] font-medium tracking-[0.1em] uppercase mb-5">
+              What we do
             </p>
-            <h2 className="font-heading font-bold text-white text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.15] tracking-[-0.02em]">
-              Core engineering competencies
+            <h2 className="text-white text-[clamp(1.8rem,3.5vw,2.8rem)] font-light leading-[1.15]">
+              Multidisciplinary engineering
+              <br />
+              <span className="font-semibold">across the full lifecycle</span>
             </h2>
-            <p className="mt-5 text-white/40 text-[15px] leading-[1.7]">
-              Our multidisciplinary team delivers integrated solutions across the
-              full project lifecycle. ISO 9001 certified.
+            <p className="mt-5 text-white/40 text-[16px] font-light leading-[1.7] max-w-[440px]">
+              ISO 9001 certified management system. From feasibility studies and
+              concept development to detailed engineering and commissioning.
             </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center mt-8 text-[#b8953f] text-[14px] font-medium hover:text-[#caa854] transition-colors cursor-pointer"
-            >
-              Discuss your project &rarr;
-            </a>
           </div>
+        </div>
+      </div>
 
-          {/* Right — service list */}
-          <div className="lg:col-span-8">
-            <div className="divide-y divide-white/[0.07]">
-              {services.map((s) => (
-                <div
-                  key={s.num}
-                  className="group py-7 first:pt-0 last:pb-0 grid sm:grid-cols-[48px_1fr] gap-4"
-                >
-                  <span className="font-heading font-semibold text-[#b8953f]/40 text-[13px] pt-0.5">
-                    {s.num}
-                  </span>
-                  <div>
-                    <h3 className="font-heading font-semibold text-white text-[17px] group-hover:text-[#b8953f] transition-colors">
-                      {s.title}
-                    </h3>
-                    <p className="mt-2 text-white/35 text-[14px] leading-[1.65] max-w-[480px]">
-                      {s.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+      {/* Services grid */}
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+          {services.map((s) => (
+            <div key={s.title} className="group">
+              <h3 className="text-[#0f1a2e] text-[17px] font-semibold leading-snug">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-gray-500 text-[15px] leading-[1.7]">
+                {s.text}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

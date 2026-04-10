@@ -69,25 +69,25 @@
 }
 
 :root {
-  --background: #f8f7f4;
-  --foreground: #1a1a1a;
+  --background: #ffffff;
+  --foreground: #111827;
   --card: #ffffff;
-  --card-foreground: #1a1a1a;
+  --card-foreground: #111827;
   --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
-  --primary: #0c1e3f;
-  --primary-foreground: #f8f7f4;
-  --secondary: #eceae4;
-  --secondary-foreground: #1a1a1a;
-  --muted: #eceae4;
-  --muted-foreground: #6b6b6b;
-  --accent: #b8953f;
-  --accent-foreground: #0c1e3f;
+  --popover-foreground: #111827;
+  --primary: #0f1a2e;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #2563eb;
+  --accent-foreground: #ffffff;
   --destructive: #dc2626;
-  --border: #d6d3cc;
-  --input: #d6d3cc;
-  --ring: #0c1e3f;
-  --radius: 0.375rem;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #0f1a2e;
+  --radius: 0.25rem;
 }
 
 @layer base {
@@ -100,13 +100,10 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Selection color */
 ::selection {
-  background: #0c1e3f;
-  color: #f8f7f4;
+  background: #0f1a2e;
+  color: #ffffff;
 }
