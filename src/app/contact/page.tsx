@@ -15,23 +15,17 @@ export default function ContactPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-20">
-        <section className="py-20 lg:py-28">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="grid lg:grid-cols-[1fr_440px] gap-16 lg:gap-24">
-              {/* Left */}
+      <main className="pt-20 pb-24">
+        <section className="py-20">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className="grid lg:grid-cols-[1fr_480px] gap-16 lg:gap-24">
               <div>
-                <p className="text-gold text-[12px] font-semibold uppercase tracking-[0.15em] mb-4">
-                  Contact
-                </p>
-                <h1 className="font-heading text-foreground text-[clamp(2.5rem,5vw,4rem)] leading-[0.95] tracking-[0.02em] uppercase">
-                  Request
-                  <br />
-                  <span className="text-gold">A Quote</span>
+                <p className="text-gray-400 text-[13px] font-medium tracking-[0.1em] uppercase mb-5">Contact</p>
+                <h1 className="text-[#0f1a2e] text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.1]">
+                  Request a <span className="font-semibold">quote</span>
                 </h1>
-                <p className="mt-6 text-muted-foreground text-[16px] leading-[1.7] max-w-[440px]">
-                  Tell us about your project and we&apos;ll respond within one
-                  business day with a tailored proposal.
+                <p className="mt-5 text-gray-500 text-[16px] leading-[1.7] max-w-[440px]">
+                  Tell us about your project and we&apos;ll respond within one business day.
                 </p>
 
                 <div className="mt-12 space-y-6">
@@ -41,78 +35,43 @@ export default function ContactPage() {
                     { label: "Email", value: "post@allum.no", href: "mailto:post@allum.no" },
                   ].map((c) => (
                     <div key={c.label}>
-                      <p className="text-[11px] text-muted-foreground uppercase tracking-[0.1em] font-medium mb-1">{c.label}</p>
+                      <p className="text-[11px] text-gray-400 uppercase tracking-[0.1em] font-medium mb-1">{c.label}</p>
                       {c.href ? (
-                        <a href={c.href} className="text-foreground text-[15px] hover:text-gold transition-colors cursor-pointer">{c.value}</a>
+                        <a href={c.href} className="text-[#0f1a2e] text-[15px] hover:text-gray-600 transition-colors cursor-pointer">{c.value}</a>
                       ) : (
-                        <p className="text-foreground text-[15px]">{c.value}</p>
+                        <p className="text-[#0f1a2e] text-[15px]">{c.value}</p>
                       )}
                     </div>
                   ))}
                 </div>
-
-                {/* Map placeholder */}
-                <div className="mt-10 aspect-[16/9] bg-card border border-border overflow-hidden">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2048.5!2d10.22!3d59.13!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTnCsDA3JzQ4LjAiTiAxMMKwMTMnMTIuMCJF!5e0!3m2!1sen!2sno!4v1"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, filter: "grayscale(1) contrast(1.1) opacity(0.7)" }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Allum Engineering location"
-                  />
-                </div>
               </div>
 
-              {/* Right — Form */}
               <div>
                 {submitted ? (
-                  <div className="bg-card border border-border p-10 text-center">
-                    <div className="w-12 h-12 bg-gold/10 flex items-center justify-center mx-auto mb-5">
-                      <Send className="w-5 h-5 text-gold" />
-                    </div>
-                    <h3 className="text-foreground text-[20px] font-semibold mb-2">
-                      Inquiry Received
-                    </h3>
-                    <p className="text-muted-foreground text-[14px]">
-                      We&apos;ll respond within one business day.
-                    </p>
+                  <div className="bg-[#f7f7f7] border border-gray-200 p-10 text-center">
+                    <Send className="w-6 h-6 text-[#0f1a2e] mx-auto mb-4" />
+                    <h3 className="text-[#0f1a2e] text-[20px] font-semibold mb-2">Inquiry received</h3>
+                    <p className="text-gray-500 text-[14px]">We&apos;ll respond within one business day.</p>
                   </div>
                 ) : (
-                  <form
-                    onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-                    className="bg-card border border-border p-6 lg:p-8 space-y-5"
-                  >
+                  <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="bg-[#f7f7f7] border border-gray-200 p-6 lg:p-8 space-y-5">
+                    <p className="text-[#0f1a2e] text-[18px] font-semibold mb-4">Project inquiry</p>
                     <div className="grid sm:grid-cols-2 gap-4">
-                      <Field label="Full Name *" required />
-                      <Field label="Company *" required />
+                      <InputField label="Full Name *" required />
+                      <InputField label="Company *" required />
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
-                      <Field label="Email *" type="email" required />
-                      <Field label="Phone" type="tel" />
+                      <InputField label="Email *" type="email" required />
+                      <InputField label="Phone" type="tel" />
                     </div>
                     <SelectField label="Industry" options={industries} />
                     <SelectField label="Project Type" options={projectTypes} />
                     <div>
-                      <label className="block text-[11px] text-muted-foreground uppercase tracking-[0.06em] mb-1.5 font-medium">
-                        Project Description *
-                      </label>
-                      <textarea
-                        required
-                        rows={4}
-                        className="w-full border border-border bg-background px-4 py-3 text-[14px] text-foreground focus:border-gold focus:outline-none transition-colors resize-none"
-                        placeholder="Describe your project, requirements and timeline..."
-                      />
+                      <label className="block text-[11px] text-gray-400 uppercase tracking-[0.06em] mb-1.5 font-medium">Project Description *</label>
+                      <textarea required rows={4} className="w-full border border-gray-300 bg-white px-4 py-3 text-[14px] text-[#111827] focus:border-[#0f1a2e] focus:outline-none transition-colors resize-none" placeholder="Describe your project..." />
                     </div>
                     <SelectField label="Estimated Timeline" options={timelines} />
-                    <button
-                      type="submit"
-                      className="w-full h-12 bg-gold text-[#0A0F1A] text-[14px] font-semibold hover:bg-[#d4911c] transition-colors cursor-pointer"
-                    >
-                      Submit Request
-                    </button>
+                    <button type="submit" className="w-full h-12 bg-[#0f1a2e] text-white text-[14px] font-semibold hover:bg-[#1a2d4a] transition-colors cursor-pointer">Submit Request</button>
                   </form>
                 )}
               </div>
@@ -125,17 +84,11 @@ export default function ContactPage() {
   );
 }
 
-function Field({ label, type = "text", required = false }: { label: string; type?: string; required?: boolean }) {
+function InputField({ label, type = "text", required = false }: { label: string; type?: string; required?: boolean }) {
   return (
     <div>
-      <label className="block text-[11px] text-muted-foreground uppercase tracking-[0.06em] mb-1.5 font-medium">
-        {label}
-      </label>
-      <input
-        type={type}
-        required={required}
-        className="w-full h-11 border border-border bg-background px-4 text-[14px] text-foreground focus:border-gold focus:outline-none transition-colors"
-      />
+      <label className="block text-[11px] text-gray-400 uppercase tracking-[0.06em] mb-1.5 font-medium">{label}</label>
+      <input type={type} required={required} className="w-full h-11 border border-gray-300 bg-white px-4 text-[14px] text-[#111827] focus:border-[#0f1a2e] focus:outline-none transition-colors" />
     </div>
   );
 }
@@ -143,10 +96,8 @@ function Field({ label, type = "text", required = false }: { label: string; type
 function SelectField({ label, options }: { label: string; options: string[] }) {
   return (
     <div>
-      <label className="block text-[11px] text-muted-foreground uppercase tracking-[0.06em] mb-1.5 font-medium">
-        {label}
-      </label>
-      <select className="w-full h-11 border border-border bg-background px-4 text-[14px] text-foreground focus:border-gold focus:outline-none transition-colors cursor-pointer appearance-none">
+      <label className="block text-[11px] text-gray-400 uppercase tracking-[0.06em] mb-1.5 font-medium">{label}</label>
+      <select className="w-full h-11 border border-gray-300 bg-white px-4 text-[14px] text-[#111827] focus:border-[#0f1a2e] focus:outline-none transition-colors cursor-pointer appearance-none">
         <option value="">Select...</option>
         {options.map((o) => <option key={o} value={o}>{o}</option>)}
       </select>

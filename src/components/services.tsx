@@ -1,54 +1,105 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { Ruler, Cog, Wind, Anchor, Construction, Cable } from "lucide-react";
 
 const services = [
-  { icon: Ruler, title: "Structural Analysis & Design", desc: "FEM analysis, structures subjected to environmental loads. Design per NORSOK, DNV, Eurocode." },
-  { icon: Cog, title: "Mechanical Equipment Design", desc: "Cable turntables, tensioners, pull-in winches, loading systems. Custom modules for process industry." },
-  { icon: Wind, title: "Piping & Pressure Vessels", desc: "Piping system design, pressure vessel calculations. PED and international standard compliance." },
-  { icon: Anchor, title: "Naval Architecture & Marine", desc: "Ship modifications, ballast systems, stability. FPSO experience from Petrojarl 1." },
-  { icon: Construction, title: "Lifting & Crane Systems", desc: "Custom lifting appliances and cranes. DNV-certified lifting design." },
-  { icon: Cable, title: "Cable Handling & Subsea", desc: "Production, handling, transport and storage equipment for subsea and HV cables. End-to-end solutions." },
+  {
+    title: "Structural Analysis & Design",
+    text: "Comprehensive FEA and design of load-bearing structures for marine and industrial applications.",
+  },
+  {
+    title: "Mechanical Equipment Design",
+    text: "Bespoke mechanical equipment engineering from concept through detailed design.",
+  },
+  {
+    title: "Naval Architecture & Marine",
+    text: "Stability analysis, vessel modifications, marine engineering and classification.",
+  },
+  {
+    title: "Piping & Pressure Vessels",
+    text: "Stress analysis, pressure vessel design and process equipment to international standards.",
+  },
+  {
+    title: "Lifting Appliances & Cranes",
+    text: "Purpose-built lifting appliances and crane systems, 3D FE analysis, classification-ready.",
+  },
+  {
+    title: "Systems Integration",
+    text: "End-to-end integration of mechanical, structural and control systems.",
+  },
 ];
 
 export default function Services() {
   return (
-    <section className="py-24 lg:py-32 bg-card">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-gold text-[12px] font-semibold uppercase tracking-[0.15em] mb-4">
-            What We Do
-          </p>
-          <h2 className="font-heading text-foreground text-[clamp(2rem,4vw,3rem)] leading-[0.95] tracking-[0.02em] uppercase">
-            Core Disciplines
-          </h2>
+    <section id="services" className="relative">
+      {/* Full-width image band — using Allum's own CAD rendering */}
+      <div className="relative h-[400px] lg:h-[500px] bg-[#0f1a2e] overflow-hidden">
+        {/* Background ocean */}
+        <Image
+          src="/images/background.png"
+          alt=""
+          fill
+          className="object-cover opacity-30"
+          aria-hidden="true"
+        />
+        {/* CAD overlay */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:flex items-center justify-center opacity-20">
+          <Image
+            src="/images/thumb2.png"
+            alt=""
+            width={500}
+            height={300}
+            className="object-contain max-w-[80%] invert"
+            aria-hidden="true"
+          />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((s) => (
-            <div
-              key={s.title}
-              className="group p-6 bg-background border border-border hover:border-gold/30 transition-all cursor-pointer relative overflow-hidden"
-            >
-              {/* Gold left bar on hover */}
-              <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gold scale-y-0 group-hover:scale-y-100 transition-transform origin-top" />
+        <div className="relative z-10 h-full flex items-center max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="max-w-[600px]">
+            <p className="text-white/40 text-[13px] font-medium tracking-[0.1em] uppercase mb-5">
+              What we do
+            </p>
+            <h2 className="text-white text-[clamp(1.8rem,3.5vw,2.8rem)] font-light leading-[1.15]">
+              Multidisciplinary engineering
+              <br />
+              <span className="font-semibold">across the full lifecycle</span>
+            </h2>
+            <p className="mt-5 text-white/40 text-[16px] font-light leading-[1.7] max-w-[440px]">
+              ISO 9001 certified. From feasibility studies and concept
+              development to detailed engineering and commissioning.
+            </p>
+            <div className="mt-6 flex items-center gap-4">
+              <Image
+                src="/images/iso-9001.png"
+                alt="ISO 9001 Certified"
+                width={60}
+                height={60}
+                className="opacity-60"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <s.icon className="w-6 h-6 text-gold mb-4" />
-              <h3 className="text-foreground text-[16px] font-semibold mb-2">
+      {/* Services grid */}
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+          {services.map((s) => (
+            <div key={s.title} className="group">
+              <h3 className="text-[#0f1a2e] text-[17px] font-semibold leading-snug">
                 {s.title}
               </h3>
-              <p className="text-muted-foreground text-[14px] leading-[1.65]">
-                {s.desc}
+              <p className="mt-3 text-gray-500 text-[15px] leading-[1.7]">
+                {s.text}
               </p>
             </div>
           ))}
         </div>
-
-        <div className="text-center mt-10">
+        <div className="mt-12">
           <Link
             href="/services"
-            className="text-gold text-[14px] font-semibold hover:text-[#d4911c] transition-colors cursor-pointer"
+            className="inline-flex items-center text-[#0f1a2e] text-[14px] font-semibold hover:text-gray-600 transition-colors cursor-pointer"
           >
             View all services &rarr;
           </Link>

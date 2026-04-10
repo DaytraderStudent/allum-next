@@ -32,75 +32,43 @@ const featured = [
 
 export default function ProjectsPreview() {
   return (
-    <section className="py-24 lg:py-32">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+    <section className="py-24 lg:py-32 bg-[#f7f7f7]">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
           <div>
-            <p className="text-gold text-[12px] font-semibold uppercase tracking-[0.15em] mb-4">
+            <p className="text-gray-400 text-[13px] font-medium tracking-[0.1em] uppercase mb-5">
               Selected Work
             </p>
-            <h2 className="font-heading text-foreground text-[clamp(2rem,4vw,3rem)] leading-[0.95] tracking-[0.02em] uppercase">
-              Featured Projects
+            <h2 className="text-[#0f1a2e] text-[clamp(1.8rem,3vw,2.5rem)] font-light leading-[1.2]">
+              Featured <span className="font-semibold">projects</span>
             </h2>
           </div>
-          <Link
-            href="/projects"
-            className="text-gold text-[14px] font-semibold hover:text-[#d4911c] transition-colors cursor-pointer"
-          >
+          <Link href="/projects" className="text-[#0f1a2e] text-[14px] font-semibold hover:text-gray-600 transition-colors cursor-pointer">
             View all projects &rarr;
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-6">
           {featured.map((p) => (
-            <Link
-              key={p.title}
-              href="/projects"
-              className="group bg-card border border-border hover:border-gold/30 transition-all overflow-hidden block"
-            >
-              <div
-                className={`relative overflow-hidden ${p.isModel ? "aspect-[16/10] bg-surface flex items-center justify-center" : "aspect-[16/10]"}`}
-              >
+            <Link key={p.title} href="/projects" className="group block bg-white border border-gray-200 hover:border-gray-300 transition-colors overflow-hidden">
+              <div className={`relative overflow-hidden ${p.isModel ? "aspect-[16/10] bg-gray-50 flex items-center justify-center" : "aspect-[16/10]"}`}>
                 {p.isModel ? (
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    width={400}
-                    height={250}
-                    className="object-contain max-h-[80%] max-w-[80%] group-hover:scale-105 transition-transform duration-500"
-                  />
+                  <Image src={p.image} alt={p.title} width={400} height={250} className="object-contain max-h-[80%] max-w-[80%] group-hover:scale-105 transition-transform duration-500" />
                 ) : (
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  <Image src={p.image} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 )}
-                <div className="absolute top-3 right-3 bg-[#0A0F1A]/80 backdrop-blur-sm px-2 py-1">
-                  <span className="font-mono text-[11px] text-white font-medium">
-                    {p.year}
-                  </span>
+                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1">
+                  <span className="text-[11px] font-semibold text-[#0f1a2e]">{p.year}</span>
                 </div>
               </div>
               <div className="p-5">
                 <div className="flex gap-1.5 mb-3">
                   {p.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] font-medium uppercase tracking-[0.04em] text-gold bg-gold/10 px-2 py-0.5"
-                    >
-                      {tag}
-                    </span>
+                    <span key={tag} className="text-[10px] font-semibold uppercase tracking-[0.04em] text-[#0f1a2e] bg-gray-100 px-2 py-0.5">{tag}</span>
                   ))}
                 </div>
-                <h3 className="text-foreground text-[15px] font-semibold leading-snug group-hover:text-gold transition-colors">
-                  {p.title}
-                </h3>
-                <p className="mt-2 text-[12px] text-muted-foreground">
-                  {p.client}
-                </p>
-                <div className="mt-4 h-[2px] w-0 group-hover:w-12 bg-gold transition-all duration-300" />
+                <h3 className="text-[#0f1a2e] text-[15px] font-semibold leading-snug group-hover:text-gray-600 transition-colors">{p.title}</h3>
+                <p className="mt-2 text-[12px] text-gray-500">{p.client}</p>
               </div>
             </Link>
           ))}

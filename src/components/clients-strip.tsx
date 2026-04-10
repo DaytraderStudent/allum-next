@@ -6,22 +6,19 @@ const clients = ["Nexans", "Equinor", "OMV", "Solstad Offshore", "Prysmian", "Ga
 
 export default function ClientsStrip() {
   return (
-    <section className="py-12 border-y border-border bg-card">
-      <div className="max-w-[1200px] mx-auto px-6 mb-6">
-        <p className="text-[11px] text-muted-foreground uppercase tracking-[0.15em] text-center font-medium">
-          Trusted by global industry leaders
+    <div className="py-10 border-y border-gray-200 bg-white">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 mb-6">
+        <p className="text-[12px] text-gray-400 uppercase tracking-[0.08em] text-center font-medium">
+          Trusted by industry leaders
         </p>
       </div>
       <Marquee pauseOnHover className="[--duration:30s]">
         {clients.map((name) => (
-          <span
-            key={name}
-            className="mx-10 font-heading text-[22px] text-muted-foreground/40 hover:text-gold transition-colors tracking-wider uppercase whitespace-nowrap"
-          >
+          <span key={name} className="mx-10 text-[18px] font-semibold text-gray-300 hover:text-[#0f1a2e] transition-colors tracking-[-0.01em] whitespace-nowrap">
             {name}
           </span>
         ))}
       </Marquee>
-    </section>
+    </div>
   );
 }

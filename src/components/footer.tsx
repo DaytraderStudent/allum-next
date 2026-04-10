@@ -1,104 +1,78 @@
-import Link from "next/link";
+"use client";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#060a14] text-[#9CA3AF] border-t border-[#1F2937]">
-      <div className="max-w-[1200px] mx-auto px-6 py-14">
+    <footer className="bg-[#0a0f1a] text-white/30">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-7 h-7 bg-[#E8A020] flex items-center justify-center">
-                <span className="font-heading text-[#0A0F1A] text-[14px] leading-none">
-                  A
-                </span>
-              </div>
-              <span className="text-white text-[14px] font-semibold">
-                Allum Engineering
-              </span>
-            </div>
-            <p className="text-[13px] leading-[1.65]">
-              Engineering solutions for the world&apos;s most demanding
-              industries since 1973.
+            <span className="text-white text-[20px] font-light tracking-[0.04em]">
+              allum
+            </span>
+            <p className="mt-4 text-[14px] leading-[1.65]">
+              Allum Engineering AS
+              <br />
+              Hinderveien 5
+              <br />
+              3223 Sandefjord, Norway
             </p>
           </div>
 
           <div>
-            <h4 className="text-white text-[12px] font-semibold uppercase tracking-[0.1em] mb-4">
+            <h4 className="text-white/50 text-[12px] font-semibold uppercase tracking-[0.1em] mb-4">
               Company
             </h4>
-            <ul className="space-y-2.5 text-[13px]">
-              {[
-                { label: "About", href: "/about" },
-                { label: "Services", href: "/services" },
-                { label: "Projects", href: "/projects" },
-              ].map((l) => (
-                <li key={l.label}>
-                  <Link
-                    href={l.href}
-                    className="hover:text-[#E8A020] transition-colors cursor-pointer"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+            <ul className="space-y-2">
+              {["About", "Services", "Projects", "Products", "Dashboard"].map(
+                (item) => (
+                  <li key={item}>
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className="text-[14px] hover:text-white transition-colors cursor-pointer"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white text-[12px] font-semibold uppercase tracking-[0.1em] mb-4">
-              Services
-            </h4>
-            <ul className="space-y-2.5 text-[13px]">
-              {[
-                "Structural Analysis",
-                "Mechanical Design",
-                "Naval Architecture",
-                "Cable Handling",
-                "Lifting Systems",
-              ].map((s) => (
-                <li key={s}>
-                  <Link
-                    href="/services"
-                    className="hover:text-[#E8A020] transition-colors cursor-pointer"
-                  >
-                    {s}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white text-[12px] font-semibold uppercase tracking-[0.1em] mb-4">
+            <h4 className="text-white/50 text-[12px] font-semibold uppercase tracking-[0.1em] mb-4">
               Contact
             </h4>
-            <ul className="space-y-2.5 text-[13px]">
-              <li>Hinderveien 5</li>
-              <li>3223 Sandefjord, Norway</li>
-              <li className="pt-1">
-                <a
-                  href="tel:+4733427170"
-                  className="hover:text-[#E8A020] transition-colors cursor-pointer"
-                >
-                  +47 33 42 71 70
-                </a>
-              </li>
+            <ul className="space-y-2 text-[14px]">
               <li>
                 <a
                   href="mailto:post@allum.no"
-                  className="hover:text-[#E8A020] transition-colors cursor-pointer"
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
                   post@allum.no
                 </a>
               </li>
+              <li>
+                <a
+                  href="tel:+4733473350"
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  +47 33 47 33 50
+                </a>
+              </li>
             </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white/50 text-[12px] font-semibold uppercase tracking-[0.1em] mb-4">
+              Certifications
+            </h4>
+            <p className="text-[14px]">ISO 9001 Quality Management</p>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-[#1F2937] flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px]">
-          <p>&copy; {new Date().getFullYear()} Allum Engineering AS</p>
-          <p className="font-mono text-[11px]">ISO 9001 Certified</p>
+        <div className="mt-14 pt-6 border-t border-white/[0.06] text-[12px]">
+          &copy; {new Date().getFullYear()} Allum Engineering AS. All rights
+          reserved.
         </div>
       </div>
     </footer>
