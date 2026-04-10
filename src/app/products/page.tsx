@@ -54,8 +54,8 @@ export default function ProductsPage() {
       <main>
         <PageHeader
           overline="Products"
-          title="Purpose-built equipment"
-          titleBold="engineered to perform"
+          title="Purpose-Built"
+          titleAccent="Equipment"
         />
 
         <section className="py-24 lg:py-32">

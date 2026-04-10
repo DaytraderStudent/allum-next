@@ -2,10 +2,9 @@ import Navigation from "@/components/navigation";
 import Hero from "@/components/hero";
 import About from "@/components/about";
 import Services from "@/components/services";
-import Markets from "@/components/markets";
-import Products from "@/components/products";
-import News from "@/components/news";
-import InquiryForm from "@/components/inquiry-form";
+import ProjectsPreview from "@/components/projects-preview";
+import ClientsStrip from "@/components/clients-strip";
+import CTASection from "@/components/cta-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -16,10 +15,9 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
-        <Markets />
-        <Products />
-        <News />
-        <InquiryForm />
+        <ProjectsPreview />
+        <ClientsStrip />
+        <CTASection />
       </main>
       <Footer />
     </>

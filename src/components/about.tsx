@@ -5,70 +5,52 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 lg:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section className="py-24 lg:py-32">
+      <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image — Allum's blueprint illustration with ocean underneath */}
-          <div className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#0f1a2e]">
-              <Image
-                src="/images/background.png"
-                alt="Norwegian ocean"
-                fill
-                className="object-cover opacity-40"
-              />
-              <div className="absolute inset-0 flex items-center justify-center p-8">
-                <Image
-                  src="/images/about.png"
-                  alt="Allum Engineering blueprint illustration"
-                  width={600}
-                  height={260}
-                  className="w-full max-w-[500px] object-contain invert opacity-60"
-                />
-              </div>
-              {/* Year badge */}
-              <div className="absolute bottom-0 left-0 bg-white px-8 py-5">
-                <div className="text-[#0f1a2e] text-[32px] font-light leading-none">
-                  1973
-                </div>
-                <div className="text-gray-400 text-[11px] font-medium uppercase tracking-[0.1em] mt-1">
-                  Established
-                </div>
-              </div>
+          {/* Image */}
+          <div className="relative aspect-[4/3] bg-card overflow-hidden">
+            <Image
+              src="/images/project.jpg"
+              alt="Allum Engineering CFU unit"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute bottom-0 left-0 bg-gold px-6 py-4">
+              <span className="font-heading text-[#0A0F1A] text-[28px] tracking-wider">
+                EST. 1973
+              </span>
             </div>
           </div>
 
           {/* Text */}
           <div>
-            <p className="text-gray-400 text-[13px] font-medium tracking-[0.1em] uppercase mb-6">
-              About Allum Engineering
+            <p className="text-gold text-[12px] font-semibold uppercase tracking-[0.15em] mb-4">
+              About Allum
             </p>
-            <h2 className="text-[#0f1a2e] text-[clamp(1.8rem,3vw,2.5rem)] font-light leading-[1.2] tracking-[-0.01em]">
-              Five decades of solving
+            <h2 className="font-heading text-foreground text-[clamp(2rem,4vw,3rem)] leading-[0.95] tracking-[0.02em] uppercase">
+              Trusted Partner
               <br />
-              <span className="font-semibold">complex challenges</span>
+              For 50 Years
             </h2>
-            <div className="mt-8 space-y-4 text-gray-500 text-[16px] leading-[1.75]">
+            <div className="mt-6 space-y-4 text-muted-foreground text-[15px] leading-[1.75]">
               <p>
-                Founded by Øivind Allum in Sandefjord, we started serving the
-                Norwegian shipyard industry. When that industry declined in the
-                1980s, we pivoted to maritime supply, shipping and offshore —
-                participating in the construction of the world&apos;s first
-                FPSO, Petrojarl 1.
-              </p>
-              <p>
-                Today, around 20 engineers work across five departments covering
-                structural analysis, naval architecture, mechanical design, and
-                process engineering. We operate as a systems integrator —
+                Allum Engineering has served the marine, energy and process
+                industries for over five decades. We are a systems integrator —
                 enabling our clients&apos; technology from concept through
                 commissioning.
+              </p>
+              <p>
+                From contributing to the world&apos;s first FPSO to delivering
+                25+ cable handling projects for Nexans, our track record
+                speaks for itself.
               </p>
             </div>
             <Link
               href="/about"
-              className="inline-flex items-center mt-8 text-[#0f1a2e] text-[14px] font-semibold hover:text-gray-600 transition-colors cursor-pointer"
+              className="inline-flex items-center mt-6 text-gold text-[14px] font-semibold hover:text-[#d4911c] transition-colors cursor-pointer"
             >
-              Read more about us &rarr;
+              Our full story &rarr;
             </Link>
           </div>
         </div>
