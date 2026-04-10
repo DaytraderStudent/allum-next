@@ -1,6 +1,7 @@
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import PageHeader from "@/components/page-header";
+import Timeline from "./timeline";
 import Image from "next/image";
 
 export const metadata = {
@@ -8,16 +9,6 @@ export const metadata = {
   description:
     "Five decades of multidisciplinary engineering. Learn about Allum Engineering's history, team and values.",
 };
-
-const timeline = [
-  { year: "1973", text: "Founded by Øivind Allum in Sandefjord, serving the Norwegian shipyard industry." },
-  { year: "1980s", text: "Pivoted to maritime supply, shipping and offshore as the shipyard industry declined." },
-  { year: "1990s", text: "Participated in the construction of the world's first FPSO, Petrojarl 1. Multidisciplinary division sold to Norsk Vekst AS." },
-  { year: "2012", text: "Relaunched with broader multidisciplinary scope covering marine, energy and process." },
-  { year: "2015", text: "Began development of the patented Compact Flotation Unit (CFU) water treatment technology." },
-  { year: "2019", text: "CFU tested at Equinor facilities. Innovation Norway and Research Council backing secured." },
-  { year: "Today", text: "Around 20 engineers across five departments. ISO 9001 certified. Pursuing Miljøfyrtårn environmental certification." },
-];
 
 export default function AboutPage() {
   return (
@@ -78,28 +69,7 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline */}
-        <section className="py-24 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-            <p className="text-gray-400 text-[13px] font-medium tracking-[0.1em] uppercase mb-12">
-              Our journey
-            </p>
-            <div className="space-y-0">
-              {timeline.map((m) => (
-                <div
-                  key={m.year}
-                  className="grid lg:grid-cols-[160px_1fr] gap-4 lg:gap-12 py-8 border-t border-gray-200 first:border-t-0 first:pt-0"
-                >
-                  <span className="text-[#0f1a2e] text-[24px] font-semibold">
-                    {m.year}
-                  </span>
-                  <p className="text-gray-500 text-[16px] leading-[1.7] max-w-[600px]">
-                    {m.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Timeline />
 
         {/* Key figures */}
         <section className="py-20 bg-[#f7f7f7]">
