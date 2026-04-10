@@ -1,9 +1,10 @@
 import Navigation from "@/components/navigation";
+import AuthGate from "./auth-gate";
 import Dashboard from "./dashboard-client";
 
 export const metadata = {
   title: "Dashboard — Allum Engineering",
-  description: "Anbud-overvåking, pipeline og dokumentanalyse.",
+  description: "Internt dashboard for anbud-overvåking og pipeline-styring.",
 };
 
 export default function DashboardPage() {
@@ -11,7 +12,9 @@ export default function DashboardPage() {
     <>
       <Navigation />
       <main className="pt-20 min-h-screen bg-[#f5f5f5]">
-        <Dashboard />
+        <AuthGate>
+          <Dashboard />
+        </AuthGate>
       </main>
     </>
   );
